@@ -1,6 +1,5 @@
 <?php
 ob_start();
-
 ?>
 
 <section class="error">
@@ -9,6 +8,6 @@ ob_start();
 </section>
 
 <?php
-
 $content = ob_get_clean();
 require VIEWS . 'layout.php';
+?>
