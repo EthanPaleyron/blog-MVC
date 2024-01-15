@@ -15,10 +15,11 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/signin">Sign in</a></li>
+                <li><a href="/register">Sign in</a></li>
                 <li><a href="/login">Login</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="/logout/">Logout</a></li>
                 <li><a href="/insert-blog">Insert new blog</a></li>
+                <?php var_dump($_SESSION) ?>
                 <!-- <li>(User name)</li> -->
             </ul>
         </nav>
