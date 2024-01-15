@@ -4,7 +4,7 @@
 
 **Temps global : `6 heures 58 minutes` temps réel `0 heures 41 minutes`**
 
-1. Créer et lancée le project `25 minutes` temps réel `40 minutes`
+1. Créer et lancée le project `25 minutes` temps réel `40 minutes` ✅
 
 1. Mise en place de la base de données `1 minutes` temps réel `1 minutes` ✅ (j'ai juste récupérer une ancien base de donné d'un autre projet)
 
@@ -12,7 +12,7 @@
 
    - Frontend `12 minutes` temps réel `0 heures 0 minutes`
 
-     - Maquette HTML `5 minutes` temps réel `0 heures 0 minutes`
+     - Maquette HTML `5 minutes` temps réel `30 minutes` ✅
      - Style de la page (SCSS) `7 minutes` temps réel `0 heures 0 minutes`
 
    - Backend `4 heures 20 minutes` temps réel `0 heures 0 minutes`

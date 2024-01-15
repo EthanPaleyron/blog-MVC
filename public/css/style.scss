@@ -1,0 +1,16 @@
+.articles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  article {
+    width: 20rem;
+    height: 25rem;
+    border: solid;
+    h2,
+    p {
+      white-space: nowrap;
+      overflow: auto;
+      text-overflow: ellipsis;
+    }
+  }
+}

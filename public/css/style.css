@@ -1,0 +1,16 @@
+.articles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.articles article {
+  width: 20rem;
+  height: 25rem;
+  border: solid;
+}
+.articles article h2,
+.articles article p {
+  white-space: nowrap;
+  overflow: auto;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=style.css.map */

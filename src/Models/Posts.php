@@ -7,7 +7,7 @@ class Posts
     private int $labelUser;
     private string $title;
     private $datetime;
-    private string $img;
+    private string $file;
     private string $content;
     public function setId($id): void
     {
@@ -41,13 +41,13 @@ class Posts
     {
         return $this->datetime;
     }
-    public function setImg($img): void
+    public function setFile($file): void
     {
-        $this->img = $img;
+        $this->file = $file;
     }
-    public function getImg(): string
+    public function getFile(): string
     {
-        return $this->img;
+        return $this->file;
     }
     public function setContent($content): void
     {

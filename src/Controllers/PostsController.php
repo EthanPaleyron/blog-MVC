@@ -17,7 +17,17 @@ class PostsController
 
     public function index()
     {
-        require VIEWS . 'blog/index.php';
+        require VIEWS . 'Blog/index.php';
     }
+
+    public function formCreate()
+    {
+        require VIEWS . 'Blog/insert-blog.php';
+    }
+
+    // public function formUpdate()
+    // {
+    //     require VIEWS . 'Blog/update-blog.php';
+    // }
 }
 ?>
