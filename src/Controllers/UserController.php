@@ -67,10 +67,10 @@ class UserController
         if (!$this->validator->errors()) {
             $res = $this->manager->find($_POST["username"]);
 
-            if ($res && password_verify($_POST['password'], $res->getMDP_UTILISATEUR())) {
+            if ($res && password_verify($_POST['password'], $res->getpassword())) {
                 $_SESSION["user"] = [
-                    "id" => $res->getID_UTILISATEUR(),
-                    "username" => $res->getNOM_UTILISATEUR(),
+                    "id" => $res->getid_user(),
+                    "username" => $res->getusername(),
                 ];
                 header("Location: /");
             } else {

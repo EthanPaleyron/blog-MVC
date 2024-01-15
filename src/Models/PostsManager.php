@@ -21,7 +21,7 @@ class PostsManager
 
     public function store($datetime, $file)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO blogs (label_user , title_blog, datetime_blog, file_blog, content_blog) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO blogs (label_user, title_blog, datetime_blog, file_blog, content_blog) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute(
             array(
                 $_SESSION["user"]["id"],

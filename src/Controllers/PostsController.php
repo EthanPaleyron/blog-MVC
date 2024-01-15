@@ -35,7 +35,6 @@ class PostsController
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
-            // $res = $this->manager->find($_POST["name"], $_SESSION["user"]["id"]);
             $file = rand(0, 10000000) . $_FILES["file"]["name"];
             move_uploaded_file($_FILES["file"]["tmp_name"], "../public/files/" . $file);
             $datetime = date("Y-m-d H:i:s");
