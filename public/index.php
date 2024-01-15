@@ -20,5 +20,6 @@ $router->get('/logout/', "UserController@logout");
 // pages blog
 $router->get('/insert-blog', "PostsController@formCreate");
 $router->get('/update-blog', "PostsController@formUpdate");
+$router->post('/create/', "PostsController@create");
 
 $router->run();

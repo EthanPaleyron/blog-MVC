@@ -70,7 +70,7 @@ class UserController
             if ($res && password_verify($_POST['password'], $res->getMDP_UTILISATEUR())) {
                 $_SESSION["user"] = [
                     "id" => $res->getID_UTILISATEUR(),
-                    "username" => $res->getNOM_UTILISATEUR()
+                    "username" => $res->getNOM_UTILISATEUR(),
                 ];
                 header("Location: /");
             } else {

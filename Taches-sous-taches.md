@@ -16,8 +16,9 @@
      - Style de la page (SCSS) `7 minutes` temps réel `0 heures 0 minutes`
 
    - Backend `4 heures 20 minutes` temps réel `0 heures 0 minutes`
-     - Conexion de l'utilisateur `1 heures` temps réel `0 heures 0 minutes`
-     - Insertion d'un poste `1 heures 30 minutes` temps réel `0 heures 0 minutes`
+     - Connexion de l'utilisateur `1 heures` temps réel `35 minutes`
+     - Insertion d'un nouvel l'utilisateur `1 heures` temps réel `25 minutes`
+     - Insertion d'un poste `1 heures 30 minutes` temps réel `20 minutes`
      - Affichage de la table articles `30 minutes` temps réel `0 heures 0 minutes`
      - Suppression d'un poste `30 minutes` temps réel `0 heures 0 minutes`
      - modification d'un posts d'un poste `1 heures 30 minutes` temps réel `0 heures 0 minutes`

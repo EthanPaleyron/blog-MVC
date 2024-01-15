@@ -4,7 +4,7 @@ ob_start();
 
 <h1>Insert new blog</h1>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="/create" method="post" enctype="multipart/form-data">
     <label for="title">Title :</label>
     <input type="text" name="title" id="title">
     <label for="file">File :</label>

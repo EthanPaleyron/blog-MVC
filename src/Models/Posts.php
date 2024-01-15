@@ -3,59 +3,59 @@ namespace Project\Models;
 
 class Posts
 {
-    private int $id;
-    private int $labelUser;
-    private string $title;
-    private $datetime;
-    private string $file;
-    private string $content;
-    public function setId($id): void
+    private int $ID_BLOG;
+    private int $LABEL_UTILISATEUR;
+    private string $TITLE_BLOG;
+    private $DATETIME_BLOG;
+    private string $IMAGE_BLOG;
+    private string $DESCRIPTION_BLOG;
+    public function setID_BLOG($ID_BLOG): void
     {
-        $this->id = $id;
+        $this->ID_BLOG = $ID_BLOG;
     }
-    public function getId(): int
+    public function getID_BLOG(): int
     {
-        return $this->id;
+        return $this->ID_BLOG;
     }
-    public function setLabelUser($labelUser): void
+    public function setLABEL_UTILISATEUR($LABEL_UTILISATEUR): void
     {
-        $this->labelUser = $labelUser;
+        $this->LABEL_UTILISATEUR = $LABEL_UTILISATEUR;
     }
-    public function getLabelUser(): int
+    public function getLABEL_UTILISATEUR(): int
     {
-        return $this->labelUser;
+        return $this->LABEL_UTILISATEUR;
     }
-    public function setTitle($title): void
+    public function setTITLE_BLOG($TITLE_BLOG): void
     {
-        $this->title = $title;
+        $this->TITLE_BLOG = $TITLE_BLOG;
     }
-    public function getTitle(): string
+    public function getTITLE_BLOG(): string
     {
-        return $this->title;
+        return $this->TITLE_BLOG;
     }
-    public function setDateTime($datetime): void
+    public function setDATETIME_BLOG($DATETIME_BLOG): void
     {
-        $this->datetime = $datetime;
+        $this->DATETIME_BLOG = $DATETIME_BLOG;
     }
-    public function getDateTime()
+    public function getDATETIME_BLOG()
     {
-        return $this->datetime;
+        return $this->DATETIME_BLOG;
     }
-    public function setFile($file): void
+    public function setIMAGE_BLOG($IMAGE_BLOG): void
     {
-        $this->file = $file;
+        $this->IMAGE_BLOG = $IMAGE_BLOG;
     }
-    public function getFile(): string
+    public function getIMAGE_BLOG(): string
     {
-        return $this->file;
+        return $this->IMAGE_BLOG;
     }
-    public function setContent($content): void
+    public function setDESCRIPTION_BLOG($DESCRIPTION_BLOG): void
     {
-        $this->content = $content;
+        $this->DESCRIPTION_BLOG = $DESCRIPTION_BLOG;
     }
-    public function getContent(): string
+    public function getDESCRIPTION_BLOG(): string
     {
-        return $this->content;
+        return $this->DESCRIPTION_BLOG;
     }
 }
 ?>
