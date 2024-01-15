@@ -7,15 +7,15 @@ ob_start();
 <div class="articles">
     <?php foreach ($blogs as $blog) { ?>
         <article>
-            <img src="/files/<?= $blog->getIMAGE_BLOG() ?>" alt="<?= $blog->getIMAGE_BLOG() ?>">
+            <img src="/files/<?= $blog->getfile_blog() ?>" alt="<?= $blog->getfile_blog() ?>">
             <h2>
-                <?= $blog->getTITLE_BLOG() ?>
+                <?= $blog->gettitle_blog() ?>
             </h2>
-            <time datetime="<?= $blog->getDATETIME_BLOG() ?>">
-                <?= $blog->getDATETIME_BLOG() ?>
+            <time datetime="<?= $blog->getdatetime_blog() ?>">
+                <?= $blog->getdatetime_blog() ?>
             </time>
             <p>
-                <?= $blog->getDESCRIPTION_BLOG() ?>
+                <?= $blog->getcontent_blog() ?>
             </p>
         </article>
     <?php } ?>

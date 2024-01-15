@@ -3,32 +3,32 @@ namespace Project\Models;
 
 class User
 {
-    private int $ID_UTILISATEUR;
-    private string $NOM_UTILISATEUR;
-    private string $MDP_UTILISATEUR;
-    public function setID_UTILISATEUR($ID_UTILISATEUR): void
+    private int $id_user;
+    private string $username;
+    private string $password;
+    public function setid_user($id_user): void
     {
-        $this->ID_UTILISATEUR = $ID_UTILISATEUR;
+        $this->id_user = $id_user;
     }
-    public function getID_UTILISATEUR(): int
+    public function getid_user(): int
     {
-        return $this->ID_UTILISATEUR;
+        return $this->id_user;
     }
-    public function setNOM_UTILISATEUR($NOM_UTILISATEUR): void
+    public function setusername($username): void
     {
-        $this->NOM_UTILISATEUR = $NOM_UTILISATEUR;
+        $this->username = $username;
     }
-    public function getNOM_UTILISATEUR(): string
+    public function getusername(): string
     {
-        return $this->NOM_UTILISATEUR;
+        return $this->username;
     }
-    public function setMDP_UTILISATEUR($MDP_UTILISATEUR): void
+    public function setpassword($password): void
     {
-        $this->MDP_UTILISATEUR = $MDP_UTILISATEUR;
+        $this->password = $password;
     }
-    public function getMDP_UTILISATEUR(): string
+    public function getpassword(): string
     {
-        return $this->MDP_UTILISATEUR;
+        return $this->password;
     }
 }
 ?>

@@ -14,14 +14,14 @@ class PostsManager
 
     public function getAll()
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM articles ORDER BY TITLE_BLOG");
+        $stmt = $this->bdd->prepare("SELECT * FROM blogs ORDER BY title_blog");
         $stmt->execute(array());
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Project\Models\Posts");
     }
 
     public function store($datetime, $file)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO articles (LABEL_UTILISATEUR, TITLE_BLOG, DATETIME_BLOG, IMAGE_BLOG, DESCRIPTION_BLOG) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO blogs (label_user , title_blog, datetime_blog, file_blog, content_blog) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute(
             array(
                 $_SESSION["user"]["id"],

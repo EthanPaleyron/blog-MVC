@@ -3,59 +3,59 @@ namespace Project\Models;
 
 class Posts
 {
-    private int $ID_BLOG;
-    private int $LABEL_UTILISATEUR;
-    private string $TITLE_BLOG;
-    private $DATETIME_BLOG;
-    private string $IMAGE_BLOG;
-    private string $DESCRIPTION_BLOG;
-    public function setID_BLOG($ID_BLOG): void
+    private int $id_blog;
+    private int $label_user;
+    private string $title_blog;
+    private $datetime_blog;
+    private string $file_blog;
+    private string $content_blog;
+    public function setid_blog($id_blog): void
     {
-        $this->ID_BLOG = $ID_BLOG;
+        $this->id_blog = $id_blog;
     }
-    public function getID_BLOG(): int
+    public function getid_blog(): int
     {
-        return $this->ID_BLOG;
+        return $this->id_blog;
     }
-    public function setLABEL_UTILISATEUR($LABEL_UTILISATEUR): void
+    public function setlabel_user($label_user): void
     {
-        $this->LABEL_UTILISATEUR = $LABEL_UTILISATEUR;
+        $this->label_user = $label_user;
     }
-    public function getLABEL_UTILISATEUR(): int
+    public function getlabel_user(): int
     {
-        return $this->LABEL_UTILISATEUR;
+        return $this->label_user;
     }
-    public function setTITLE_BLOG($TITLE_BLOG): void
+    public function settitle_blog($title_blog): void
     {
-        $this->TITLE_BLOG = $TITLE_BLOG;
+        $this->title_blog = $title_blog;
     }
-    public function getTITLE_BLOG(): string
+    public function gettitle_blog(): string
     {
-        return $this->TITLE_BLOG;
+        return $this->title_blog;
     }
-    public function setDATETIME_BLOG($DATETIME_BLOG): void
+    public function setdatetime_blog($datetime_blog): void
     {
-        $this->DATETIME_BLOG = $DATETIME_BLOG;
+        $this->datetime_blog = $datetime_blog;
     }
-    public function getDATETIME_BLOG()
+    public function getdatetime_blog()
     {
-        return $this->DATETIME_BLOG;
+        return $this->datetime_blog;
     }
-    public function setIMAGE_BLOG($IMAGE_BLOG): void
+    public function setfile_blog($file_blog): void
     {
-        $this->IMAGE_BLOG = $IMAGE_BLOG;
+        $this->file_blog = $file_blog;
     }
-    public function getIMAGE_BLOG(): string
+    public function getfile_blog(): string
     {
-        return $this->IMAGE_BLOG;
+        return $this->file_blog;
     }
-    public function setDESCRIPTION_BLOG($DESCRIPTION_BLOG): void
+    public function setcontent_blog($content_blog): void
     {
-        $this->DESCRIPTION_BLOG = $DESCRIPTION_BLOG;
+        $this->content_blog = $content_blog;
     }
-    public function getDESCRIPTION_BLOG(): string
+    public function getcontent_blog(): string
     {
-        return $this->DESCRIPTION_BLOG;
+        return $this->content_blog;
     }
 }
 ?>

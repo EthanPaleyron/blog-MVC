@@ -17,7 +17,7 @@ class UserManager
     }
     public function find($username)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE NOM_UTILISATEUR = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute(
             array(
                 $username
@@ -29,13 +29,13 @@ class UserManager
     }
     public function all()
     {
-        $stmt = $this->bdd->query('SELECT * FROM utilisateurs');
+        $stmt = $this->bdd->query('SELECT * FROM users');
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Project\Models\User");
     }
     public function store($password)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO utilisateurs (NOM_UTILISATEUR, MDP_UTILISATEUR) VALUES (?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
         $stmt->execute(
             array(
                 $_POST["username"],
