@@ -1,8 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "base";
+@import "styles";
+@import "design-tokens";
 
 .articles {
   display: flex;
@@ -13,23 +11,23 @@
     width: 25rem;
     height: 35rem;
     border: solid;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     img {
-      object-fit: cover;
-      border-radius: 1rem;
       width: 100%;
       height: 60%;
+      object-fit: cover;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
     }
     .title_date {
-      margin: 1rem 0.7rem;
+      margin: 1.5rem 0.7rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       h2 {
         width: 70%;
         text-transform: uppercase;
         white-space: nowrap;
-        overflow: auto;
+        overflow: auto hidden;
         text-overflow: ellipsis;
       }
     }

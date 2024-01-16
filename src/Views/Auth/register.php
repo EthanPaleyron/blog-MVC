@@ -1,5 +1,8 @@
 <?php
 ob_start();
+if (!isset($_SESSION["user"]["username"])) {
+    header("/");
+}
 ?>
 
 <h1>Sign in</h1>

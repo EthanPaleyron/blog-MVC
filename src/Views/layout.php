@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>— Blog —</title>
     <script src="https://kit.fontawesome.com/c1d0ab37d6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="scss/style.css">
 </head>
 
 <body>
@@ -15,12 +15,16 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/register">Sign in</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/logout/">Logout</a></li>
-                <li><a href="/insert-blog">Insert new blog</a></li>
-                <?php var_dump($_SESSION) ?>
-                <!-- <li>(User name)</li> -->
+                <?php if (!isset($_SESSION["user"]["username"])) { ?>
+                    <li><a href="/register">Sign in</a></li>
+                    <li><a href="/login">Login</a></li>
+                <?php } else { ?>
+                    <li><a href="/logout/">Logout</a></li>
+                    <li><a href="/insert-blog">Insert new blog</a></li>
+                    <li>
+                        <?= $_SESSION["user"]["username"]; ?>
+                    </li>
+                <?php } ?>
             </ul>
         </nav>
     </header>
