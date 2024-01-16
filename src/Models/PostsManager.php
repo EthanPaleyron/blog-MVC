@@ -32,5 +32,26 @@ class PostsManager
             )
         );
     }
+
+    public function delete($idBlog)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM blogs WHERE `id_blog` = ?");
+        $stmt->execute(
+            array(
+                $idBlog,
+            )
+        );
+    }
+
+    public function infoBlog($idBlog)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM blogs WHERE id_blog = ?");
+        $stmt->execute(
+            array(
+                $idBlog,
+            )
+        );
+        return $stmt->fetch();
+    }
 }
 ?>

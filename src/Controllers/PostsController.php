@@ -44,5 +44,22 @@ class PostsController
             header("Location: /create/");
         }
     }
+
+    public function delete($idBlog)
+    {
+        if (!isset($_SESSION["user"]["username"])) {
+            header("Location: /login");
+            die();
+        }
+        $blog = $this->manager->infoBlog($idBlog);
+        if ($blog["label_user"] == $_SESSION["user"]["id"]) {
+            $file_to_delete = "../public/files/" . $blog["file_blog"];
+            if (file_exists($file_to_delete)) {
+                unlink($file_to_delete);
+            }
+            $this->manager->delete($idBlog);
+        }
+        header("Location: /");
+    }
 }
 ?>

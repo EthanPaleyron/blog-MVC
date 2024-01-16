@@ -21,6 +21,10 @@ ob_start();
             <p>
                 <?= escape($blog->getcontent_blog()) ?>
             </p>
+            <?php if ($blog->getlabel_user() == $_SESSION["user"]["id"]) { ?>
+                <a href="/edit-blog/<?= $blog->getid_blog() ?>">Modifier</a>
+                <a href="/delete/<?= $blog->getid_blog() ?>">Supprimer</a>
+            <?php } ?>
         </article>
     <?php } ?>
 </div>

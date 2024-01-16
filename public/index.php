@@ -18,8 +18,9 @@ $router->post('/login/', "UserController@login");
 $router->get('/logout/', "UserController@logout");
 
 // pages blog
-$router->get('/insert-blog', "PostsController@formCreate");
-$router->get('/update-blog', "PostsController@formUpdate");
+$router->get('/insert-blog/', "PostsController@formCreate");
 $router->post('/create/', "PostsController@create");
+$router->get('/delete/:id/', "PostsController@delete");
+$router->get('/edit-blog/:id/', "PostsController@editPage");
 
 $router->run();
