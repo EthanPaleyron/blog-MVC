@@ -5,19 +5,21 @@ ob_start();
 <h1>Blogs</h1>
 
 <div class="articles">
-    <?php foreach ($blogs as $blog) { ?>
+    <?php foreach ($blogs as $blog) {
+        $date = new DateTime($blog->getdatetime_blog());
+        ?>
         <article>
             <img src="/files/<?= $blog->getfile_blog() ?>" alt="<?= $blog->getfile_blog() ?>">
             <div class="title_date">
                 <h2>
-                    <?= $blog->gettitle_blog() ?>
+                    <?= escape($blog->gettitle_blog()) ?>
                 </h2>
-                <time datetime="<?= $blog->getdatetime_blog() ?>">
-                    <?= $blog->getdatetime_blog() ?>
+                <time datetime="<?= $date->format("d-m-Y") ?>">
+                    <?= $date->format("d-m-Y") ?>
                 </time>
             </div>
             <p>
-                <?= $blog->getcontent_blog() ?>
+                <?= escape($blog->getcontent_blog()) ?>
             </p>
         </article>
     <?php } ?>

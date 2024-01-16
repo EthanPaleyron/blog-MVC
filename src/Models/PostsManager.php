@@ -14,7 +14,7 @@ class PostsManager
 
     public function getAll()
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM blogs ORDER BY title_blog");
+        $stmt = $this->bdd->prepare("SELECT * FROM blogs ORDER BY datetime_blog");
         $stmt->execute(array());
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Project\Models\Posts");
     }
