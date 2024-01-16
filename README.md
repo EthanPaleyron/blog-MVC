@@ -39,5 +39,10 @@ cd .\public\
 ```
 
 ```shell
-composer dump-autoload
+php -S localhost:8000
 ```
+
+## SASS | SCSS
+
+- Install the **[live-sass]("https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass")** extension on **vscode**
+- And click on `watch sass`
