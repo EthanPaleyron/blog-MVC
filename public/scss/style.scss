@@ -58,8 +58,16 @@ h1 {
       }
     }
     p {
+      height: 3rem;
       margin: 1rem 1.5rem;
-      white-space: pre-line;
+      white-space: nowrap;
+      overflow: auto hidden;
+      text-overflow: ellipsis;
+    }
+    a {
+      padding: 0.5rem 1rem;
+      background-color: $primary;
+      border-radius: 5rem;
     }
   }
 }

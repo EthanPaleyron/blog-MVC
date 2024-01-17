@@ -30,7 +30,7 @@ class PostsController
     {
         $this->validator->validate([
             "title" => ["required", "min:1", "alphaNum"],
-            "content" => ["required", "alphaNum"]
+            "content" => ["required", "min:1", "alphaNum"]
         ]);
         if (!isset($_SESSION["user"]["username"])) {
             header("Location: /login");
@@ -76,7 +76,7 @@ class PostsController
     {
         $this->validator->validate([
             "title" => ["required", "min:1", "alphaNum"],
-            "content" => ["required", "alphaNum"]
+            "content" => ["required", "min:1", "alphaNum"]
         ]);
         if (!$this->validator->errors()) {
             $blogInfo = $this->manager->infoBlog($_POST["id"]);
@@ -93,11 +93,10 @@ class PostsController
                     $newFile = $blogInfo["file_blog"];
                 }
                 $this->manager->update($datetime, $newFile);
-            } else {
-                header("Location: /");
             }
+            header("Location: /");
         } else {
-            header("Location: /edit-blog/");
+            header("Location: /edit-blog/" . $_POST["id"]);
         }
     }
 }

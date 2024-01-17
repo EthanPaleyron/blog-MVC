@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
   `title_blog` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `datetime_blog` date NOT NULL,
   `file_blog` varchar(10000) NOT NULL,
-  `content_blog` int NOT NULL,
+  `content_blog` varchar(1000) NOT NULL,
   PRIMARY KEY (`id_blog`),
   KEY `label_user` (`label_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
