@@ -97,48 +97,67 @@ footer {
 body {
   font-size: 1rem;
   font-weight: 600;
-  line-height: 1.5rem;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 700;
-  line-height: 3rem;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
-  line-height: 2rem;
 }
 
 h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  line-height: 1.5rem;
 }
 
 @media (min-width: 768px) {
   h1 {
     font-size: 3.5rem;
-    line-height: 3.5rem;
   }
 }
 @media (min-width: 1040px) {
   h1 {
     font-size: 4rem;
-    line-height: 4rem;
   }
   h2 {
     font-size: 2.6rem;
-    line-height: 2.6rem;
   }
 }
+header nav {
+  color: #fff;
+  background-color: #aaa;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul {
+  display: flex;
+  gap: 6rem;
+}
+header nav ul a:hover {
+  text-decoration: underline;
+}
+header nav .user {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  margin: 3rem 0;
+}
+
 .articles {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 5rem 3rem;
 }
 .articles article {
   width: 25rem;
@@ -169,4 +188,21 @@ h3 {
 .articles article p {
   margin: 1rem 1.5rem;
   white-space: pre-line;
+}
+
+.form_p {
+  display: flex;
+  justify-content: center;
+}
+.form_p form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form_p form button {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #dedede;
+  padding: 1rem 1.5rem;
+  border-radius: 5rem;
 }/*# sourceMappingURL=style.css.map */

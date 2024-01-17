@@ -13,19 +13,22 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <?php if (!isset($_SESSION["user"]["username"])) { ?>
+            <?php if (!isset($_SESSION["user"]["username"])) { ?>
+                <ul>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/register">Sign in</a></li>
                     <li><a href="/login">Login</a></li>
-                <?php } else { ?>
+                </ul>
+            <?php } else { ?>
+                <ul>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/logout/">Logout</a></li>
                     <li><a href="/insert-blog">Insert new blog</a></li>
-                    <li>
-                        <?= $_SESSION["user"]["username"]; ?>
-                    </li>
-                <?php } ?>
-            </ul>
+                </ul>
+                <strong class="user">
+                    <?= $_SESSION["user"]["username"]; ?>
+                </strong>
+            <?php } ?>
         </nav>
     </header>
     <main>
