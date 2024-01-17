@@ -30,8 +30,8 @@ class UserController
     public function register()
     {
         $this->validator->validate([
-            "username" => ["required", "min:3", "alphaNum"],
-            "password" => ["required", "min:6", "alphaNum", "confirm"]
+            "username" => ["required", "min:1", "alphaNum"],
+            "password" => ["required", "min:8", "alphaNum", "confirm"]
         ]);
         $_SESSION['old'] = $_POST;
 
@@ -58,10 +58,9 @@ class UserController
     public function login()
     {
         $this->validator->validate([
-            "username" => ["required", "min:3", "max:9", "alphaNum"],
-            "password" => ["required", "min:6", "alphaNum"]
+            "username" => ["required", "min:1", "alphaNum"],
+            "password" => ["required", "min:8", "alphaNum"]
         ]);
-
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {

@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-// var_dump($_SESSION);
 
 require '../src/config/config.php';
 require '../vendor/autoload.php';
@@ -22,6 +21,7 @@ $router->get('/logout/', "UserController@logout");
 $router->get('/insert-blog/', "PostsController@formCreate");
 $router->post('/create/', "PostsController@create");
 $router->get('/delete/:id/', "PostsController@delete");
-$router->get('/edit-blog/:id/', "PostsController@editPage");
+$router->get('/edit-blog/:id', "PostsController@editBlog");
+$router->post('/update/', "PostsController@update");
 
 $router->run();

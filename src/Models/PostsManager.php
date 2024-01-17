@@ -43,6 +43,20 @@ class PostsManager
         );
     }
 
+    public function update($datetime, $file)
+    {
+        $stmt = $this->bdd->prepare("UPDATE `blogs` SET title_blog = ?, datetime_blog = ?, file_blog = ?, content_blog = ? WHERE id_blog = ?");
+        $stmt->execute(
+            array(
+                $_POST["title"],
+                $datetime,
+                $file,
+                $_POST["content"],
+                $_POST["id"],
+            )
+        );
+    }
+
     public function infoBlog($idBlog)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM blogs WHERE id_blog = ?");

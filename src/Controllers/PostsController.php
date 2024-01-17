@@ -28,6 +28,10 @@ class PostsController
 
     public function create()
     {
+        $this->validator->validate([
+            "title" => ["required", "min:1", "alphaNum"],
+            "content" => ["required", "alphaNum"]
+        ]);
         if (!isset($_SESSION["user"]["username"])) {
             header("Location: /login");
             die();
@@ -41,16 +45,12 @@ class PostsController
             $this->manager->store($datetime, $file);
             header("Location: /");
         } else {
-            header("Location: /create/");
+            header('Location: /insert-blog/');
         }
     }
 
     public function delete($idBlog)
     {
-        if (!isset($_SESSION["user"]["username"])) {
-            header("Location: /login");
-            die();
-        }
         $blog = $this->manager->infoBlog($idBlog);
         if ($blog["label_user"] == $_SESSION["user"]["id"]) {
             $file_to_delete = "../public/files/" . $blog["file_blog"];
@@ -60,6 +60,45 @@ class PostsController
             $this->manager->delete($idBlog);
         }
         header("Location: /");
+    }
+
+    public function editBlog($idBlog)
+    {
+        $blogEditing = $this->manager->infoBlog($idBlog);
+        if ($blogEditing["label_user"] == $_SESSION["user"]["id"]) {
+            require VIEWS . 'Blog/edit-blog.php';
+        } else {
+            header("Location: /");
+        }
+    }
+
+    public function update()
+    {
+        $this->validator->validate([
+            "title" => ["required", "min:1", "alphaNum"],
+            "content" => ["required", "alphaNum"]
+        ]);
+        if (!$this->validator->errors()) {
+            $blogInfo = $this->manager->infoBlog($_POST["id"]);
+            if ($blogInfo["label_user"] == $_SESSION["user"]["id"]) {
+                $datetime = date("Y-m-d H:i:s");
+                if ($_FILES["file"]["name"] != "") {
+                    $newFile = rand(0, 10000000) . $_FILES["file"]["name"];
+                    move_uploaded_file($_FILES["file"]["tmp_name"], "../public/files/" . $newFile);
+                    $file_to_delete = "../public/files/" . $blogInfo["file_blog"];
+                    if (file_exists($file_to_delete)) {
+                        unlink($file_to_delete);
+                    }
+                } else {
+                    $newFile = $blogInfo["file_blog"];
+                }
+                $this->manager->update($datetime, $newFile);
+            } else {
+                header("Location: /");
+            }
+        } else {
+            header("Location: /edit-blog/");
+        }
     }
 }
 ?>
