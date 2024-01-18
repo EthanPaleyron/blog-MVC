@@ -5,17 +5,17 @@ use Project\Models\User;
 
 class UserManager
 {
-    private $bdd;
+    private \PDO $bdd;
     public function __construct()
     {
         $this->bdd = new \PDO('mysql:host=' . HOST . ';dbname=' . DATABASE . ';charset=utf8;', USER, PASSWORD);
         $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
-    public function getBdd()
+    public function getBdd(): \PDO
     {
         return $this->bdd;
     }
-    public function find($username)
+    public function find($username): array|bool
     {
         $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute(
@@ -27,13 +27,12 @@ class UserManager
 
         return $stmt->fetch();
     }
-    public function all()
+    public function all(): array|bool
     {
         $stmt = $this->bdd->query('SELECT * FROM users');
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Project\Models\User");
     }
-    public function store($password)
+    public function store($password): void
     {
         $stmt = $this->bdd->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
         $stmt->execute(

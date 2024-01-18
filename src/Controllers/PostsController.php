@@ -15,18 +15,18 @@ class PostsController
         $this->validator = new Validator();
     }
 
-    public function index()
+    public function index(): void
     {
         $blogs = $this->manager->getAll();
         require VIEWS . 'Blog/index.php';
     }
 
-    public function formCreate()
+    public function formCreate(): void
     {
         require VIEWS . 'Blog/insert-blog.php';
     }
 
-    public function create()
+    public function create(): void
     {
         $this->validator->validate([
             "title" => ["required", "min:1", "alphaNum"],
@@ -49,7 +49,7 @@ class PostsController
         }
     }
 
-    public function delete($idBlog)
+    public function delete($idBlog): void
     {
         $blog = $this->manager->infoBlog($idBlog);
         if ($blog["label_user"] == $_SESSION["user"]["id"]) {
@@ -62,7 +62,7 @@ class PostsController
         header("Location: /");
     }
 
-    public function editBlog($idBlog)
+    public function editBlog($idBlog): void
     {
         $blogEditing = $this->manager->infoBlog($idBlog);
         if ($blogEditing["label_user"] == $_SESSION["user"]["id"]) {
@@ -72,7 +72,7 @@ class PostsController
         }
     }
 
-    public function update()
+    public function update(): void
     {
         $this->validator->validate([
             "title" => ["required", "min:1", "alphaNum"],

@@ -13,21 +13,21 @@ class UserController
         $this->manager = new UserManager();
         $this->validator = new Validator();
     }
-    public function showLogin()
+    public function showLogin(): void
     {
         require VIEWS . 'Auth/login.php';
     }
-    public function showRegister()
+    public function showRegister(): void
     {
         require VIEWS . 'Auth/register.php';
     }
-    public function logout()
+    public function logout(): void
     {
         session_start();
         session_destroy();
         header('Location: /login');
     }
-    public function register()
+    public function register(): void
     {
         $this->validator->validate([
             "username" => ["required", "min:1", "alphaNum"],
@@ -55,7 +55,7 @@ class UserController
             header("Location: /register");
         }
     }
-    public function login()
+    public function login(): void
     {
         $this->validator->validate([
             "username" => ["required", "min:1", "alphaNum"],

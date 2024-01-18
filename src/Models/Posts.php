@@ -6,7 +6,7 @@ class Posts
     private int $id_blog;
     private int $label_user;
     private string $title_blog;
-    private $datetime_blog;
+    private string $datetime_blog;
     private string $file_blog;
     private string $content_blog;
     public function setid_blog($id_blog): void
@@ -37,7 +37,7 @@ class Posts
     {
         $this->datetime_blog = $datetime_blog;
     }
-    public function getdatetime_blog()
+    public function getdatetime_blog(): string
     {
         return $this->datetime_blog;
     }
