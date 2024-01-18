@@ -9,7 +9,7 @@ ob_start();
         <input type="hidden" name="id" value="<?= $infoBlog["id_blog"] ?>">
         <div>
             <label for="title">Title :</label>
-            <input type="text" name="title" id="title" value="<?= $infoBlog["title_blog"] ?>">
+            <input type="text" name="title" id="title" value="<?= escape($infoBlog["title_blog"]) ?>">
             <p>
                 <?= error("title") ?>
             </p>
@@ -18,10 +18,10 @@ ob_start();
             <label for="file">File :</label>
             <input type="file" name="file" id="file">
         </div>
-        <img src="/files/<?= $infoBlog["file_blog"] ?>" alt="<?= $infoBlog["file_blog"] ?>">
+        <img src="/files/<?= $infoBlog["file_blog"] ?>" alt="<?= escape($infoBlog["file_blog"]) ?>">
         <div>
             <label for="content">content :</label>
-            <input type="text" name="content" id="content" value="<?= $infoBlog["content_blog"] ?>">
+            <input type="text" name="content" id="content" value="<?= escape($infoBlog["content_blog"]) ?>">
             <p>
                 <?= error("content") ?>
             </p>
