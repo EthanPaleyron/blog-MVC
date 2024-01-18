@@ -57,7 +57,7 @@ class PostsManager
         );
     }
 
-    public function infoBlog($idBlog): array|bool
+    public function infoBlog($idBlog): array
     {
         $stmt = $this->bdd->prepare("SELECT * FROM blogs WHERE id_blog = ?");
         $stmt->execute(
