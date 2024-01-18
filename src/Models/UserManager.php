@@ -15,7 +15,7 @@ class UserManager
     {
         return $this->bdd;
     }
-    public function find($username): array|bool
+    public function find($username): User|bool
     {
         $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute(
@@ -24,10 +24,9 @@ class UserManager
             )
         );
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "Project\Models\User");
-
         return $stmt->fetch();
     }
-    public function all(): array|bool
+    public function getAll(): array|bool
     {
         $stmt = $this->bdd->query('SELECT * FROM users');
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Project\Models\User");
@@ -43,4 +42,3 @@ class UserManager
         );
     }
 }
-?>

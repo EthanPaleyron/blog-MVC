@@ -6,8 +6,8 @@ use Project\Validator;
 
 class UserController
 {
-    private $manager;
-    private $validator;
+    private UserManager $manager;
+    private Validator $validator;
     public function __construct()
     {
         $this->manager = new UserManager();
@@ -15,14 +15,26 @@ class UserController
     }
     public function showLogin(): void
     {
+        if (isset($_SESSION["user"]["username"])) {
+            header("Location: /");
+            die();
+        }
         require VIEWS . 'Auth/login.php';
     }
     public function showRegister(): void
     {
+        if (isset($_SESSION["user"]["username"])) {
+            header("Location: /");
+            die();
+        }
         require VIEWS . 'Auth/register.php';
     }
     public function logout(): void
     {
+        if (!isset($_SESSION["user"]["username"])) {
+            header("Location: /login");
+            die();
+        }
         session_start();
         session_destroy();
         header('Location: /login');
@@ -34,11 +46,10 @@ class UserController
             "password" => ["required", "min:8", "alphaNum", "confirm"]
         ]);
         $_SESSION['old'] = $_POST;
-
         if (!$this->validator->errors()) {
-            $res = $this->manager->find($_POST["username"]);
-
-            if (empty($res)) {
+            $result = $this->manager->find($_POST["username"]);
+            if (empty($result)) {
+                // HACHE LE MOTS DE PASSE POUR PAS VOIR LE VRAI MOTS DE PASSE EN BDD
                 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
                 $this->manager->store($password);
 
@@ -62,14 +73,12 @@ class UserController
             "password" => ["required", "min:8", "alphaNum"]
         ]);
         $_SESSION['old'] = $_POST;
-
         if (!$this->validator->errors()) {
-            $res = $this->manager->find($_POST["username"]);
-
-            if ($res && password_verify($_POST['password'], $res->getpassword())) {
+            $result = $this->manager->find($_POST["username"]);
+            if ($result && password_verify($_POST['password'], $result->getpassword())) {
                 $_SESSION["user"] = [
-                    "id" => $res->getid_user(),
-                    "username" => $res->getusername(),
+                    "id" => $result->getid_user(),
+                    "username" => $result->getusername(),
                 ];
                 header("Location: /");
             } else {
@@ -81,4 +90,3 @@ class UserController
         }
     }
 }
-?>

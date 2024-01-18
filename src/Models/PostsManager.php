@@ -68,4 +68,3 @@ class PostsManager
         return $stmt->fetch();
     }
 }
-?>

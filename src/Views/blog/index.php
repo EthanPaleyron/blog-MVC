@@ -5,7 +5,8 @@ ob_start();
 <h1>Blogs</h1>
 
 <div class="articles">
-    <?php foreach ($blogs as $blog) {
+    <?php // AFFICHE TOUT LES BLOGS
+    foreach ($blogs as $blog) {
         $date = new DateTime($blog->getdatetime_blog());
         ?>
         <article>
@@ -22,8 +23,10 @@ ob_start();
                 <?= escape($blog->getcontent_blog()) ?>
             </p>
             <?php if ($blog->getlabel_user() == $_SESSION["user"]["id"]) { ?>
-                <a href="/edit-blog/<?= $blog->getid_blog() ?>">Modifier</a>
-                <a href="/delete/<?= $blog->getid_blog() ?>">Supprimer</a>
+                <div>
+                    <a href="/edit-blog/<?= $blog->getid_blog() ?>">Modifier</a>
+                    <a href="/delete/<?= $blog->getid_blog() ?>">Supprimer</a>
+                </div>
             <?php } ?>
         </article>
     <?php } ?>

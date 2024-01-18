@@ -6,8 +6,8 @@ use Project\Validator;
 
 class PostsController
 {
-    private $manager;
-    private $validator;
+    private PostsManager $manager;
+    private Validator $validator;
 
     public function __construct()
     {
@@ -29,7 +29,7 @@ class PostsController
     public function create(): void
     {
         $this->validator->validate([
-            "title" => ["required", "min:1", "alphaNum"],
+            "title" => ["required", "min:1", "alphaSpace"],
             "content" => ["required", "min:1", "alphaNum"]
         ]);
         if (!isset($_SESSION["user"]["username"])) {
@@ -39,6 +39,7 @@ class PostsController
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
+            // CREE L'IMAGE DANS LE DOSSIER FILES ET RAJOUTE DES CHIFFRE SUR LENOM DU FICHIER
             $file = rand(0, 10000000) . $_FILES["file"]["name"];
             move_uploaded_file($_FILES["file"]["tmp_name"], "../public/files/" . $file);
             $datetime = date("Y-m-d H:i:s");
@@ -51,9 +52,10 @@ class PostsController
 
     public function delete($idBlog): void
     {
-        $blog = $this->manager->infoBlog($idBlog);
-        if ($blog["label_user"] == $_SESSION["user"]["id"]) {
-            $file_to_delete = "../public/files/" . $blog["file_blog"];
+        $infoBlog = $this->manager->infoBlog($idBlog);
+        if ($infoBlog["label_user"] == $_SESSION["user"]["id"]) {
+            // VERIFIE SI L'IMAGE EXISTE ET LA SUPPRIME
+            $file_to_delete = "../public/files/" . $infoBlog["file_blog"];
             if (file_exists($file_to_delete)) {
                 unlink($file_to_delete);
             }
@@ -64,8 +66,9 @@ class PostsController
 
     public function editBlog($idBlog): void
     {
-        $blogEditing = $this->manager->infoBlog($idBlog);
-        if ($blogEditing["label_user"] == $_SESSION["user"]["id"]) {
+        $infoBlog = $this->manager->infoBlog($idBlog);
+        // VERIFIE SI C'EST L'UTILISATEUR DU BLOG
+        if ($infoBlog["label_user"] == $_SESSION["user"]["id"]) {
             require VIEWS . 'Blog/edit-blog.php';
         } else {
             header("Location: /");
@@ -75,22 +78,24 @@ class PostsController
     public function update(): void
     {
         $this->validator->validate([
-            "title" => ["required", "min:1", "alphaNum"],
+            "title" => ["required", "min:1", "alphaSpace"],
             "content" => ["required", "min:1", "alphaNum"]
         ]);
         if (!$this->validator->errors()) {
-            $blogInfo = $this->manager->infoBlog($_POST["id"]);
-            if ($blogInfo["label_user"] == $_SESSION["user"]["id"]) {
+            $infoBlog = $this->manager->infoBlog($_POST["id"]);
+            // VERIFIE SI C'EST L'UTILISATEUR DU BLOG
+            if ($infoBlog["label_user"] == $_SESSION["user"]["id"]) {
                 $datetime = date("Y-m-d H:i:s");
+                // SI L'UTILISATEUR REMPLACE L'IMAGE IL SUPPRIME L'ANCIENNE ET CREER LA NOUVELLE 
                 if ($_FILES["file"]["name"] != "") {
                     $newFile = rand(0, 10000000) . $_FILES["file"]["name"];
                     move_uploaded_file($_FILES["file"]["tmp_name"], "../public/files/" . $newFile);
-                    $file_to_delete = "../public/files/" . $blogInfo["file_blog"];
+                    $file_to_delete = "../public/files/" . $infoBlog["file_blog"];
                     if (file_exists($file_to_delete)) {
                         unlink($file_to_delete);
                     }
                 } else {
-                    $newFile = $blogInfo["file_blog"];
+                    $newFile = $infoBlog["file_blog"];
                 }
                 $this->manager->update($datetime, $newFile);
             }
@@ -100,4 +105,3 @@ class PostsController
         }
     }
 }
-?>

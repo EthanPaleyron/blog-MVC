@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>— Blog —</title>
     <script src="https://kit.fontawesome.com/c1d0ab37d6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="/scss/style.css">
 </head>
 
 <body>

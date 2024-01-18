@@ -58,4 +58,3 @@ class Posts
         return $this->content_blog;
     }
 }
-?>

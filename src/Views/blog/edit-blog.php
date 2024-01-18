@@ -6,10 +6,10 @@ ob_start();
 
 <div class="form_p">
     <form action="/update/" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $blogEditing["id_blog"] ?>">
+        <input type="hidden" name="id" value="<?= $infoBlog["id_blog"] ?>">
         <div>
             <label for="title">Title :</label>
-            <input type="text" name="title" id="title" value="<?= $blogEditing["title_blog"] ?>">
+            <input type="text" name="title" id="title" value="<?= $infoBlog["title_blog"] ?>">
             <p>
                 <?= error("title") ?>
             </p>
@@ -17,11 +17,11 @@ ob_start();
         <div>
             <label for="file">File :</label>
             <input type="file" name="file" id="file">
-            <img src="/files/<?= $blogEditing["file_blog"] ?>" alt="<?= $blogEditing["file_blog"] ?>">
         </div>
+        <img src="/files/<?= $infoBlog["file_blog"] ?>" alt="<?= $infoBlog["file_blog"] ?>">
         <div>
             <label for="content">content :</label>
-            <input type="text" name="content" id="content" value="<?= $blogEditing["content_blog"] ?>">
+            <input type="text" name="content" id="content" value="<?= $infoBlog["content_blog"] ?>">
             <p>
                 <?= error("content") ?>
             </p>
